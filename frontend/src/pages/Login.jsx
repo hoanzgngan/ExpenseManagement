@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FaFacebookF, FaGoogle } from 'react-icons/fa';
 import { MdEmail, MdLock, MdPerson, MdVisibilityOff, MdVisibility } from 'react-icons/md';
@@ -6,6 +7,7 @@ import { MdEmail, MdLock, MdPerson, MdVisibilityOff, MdVisibility } from 'react-
 const API_URL = 'http://localhost:3000/auth';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPasswordSignIn, setShowPasswordSignIn] = useState(false);
   const [showPasswordSignUp, setShowPasswordSignUp] = useState(false);
@@ -60,7 +62,7 @@ const Login = () => {
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         setTimeout(() => {
-          window.location.href = '/dashboard';
+          navigate('/dashboard');
         }, 1000);
       } else {
         setMessage('✗ ' + (data.message || 'Đăng nhập thất bại'));

@@ -214,7 +214,7 @@ a.forgot-pass:hover {
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 620px;
 }
 
 .form-container {
@@ -344,7 +344,7 @@ a.forgot-pass:hover {
 
 @media (max-width: 768px) {
   .container {
-    min-height: 350px;
+    min-height: 700px;
   }
 
   .form-container {
