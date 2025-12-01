@@ -1,0 +1,86 @@
+/* src/homepages/TransactionList.css */
+
+/* Keyframe cho hiệu ứng pulse nhẹ */
+@keyframes pulseColor {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.transactionHistory {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); 
+}
+
+.transactionHistory h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.listGroup {
+    list-style: none;
+    padding: 0;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0; 
+  margin-bottom: 0;
+  background-color: transparent; 
+  border-radius: 0;
+  border-bottom: 1px solid #f0f0f0; 
+  transition: all 0.3s ease; /* Thêm transition cho mọi thay đổi */
+  cursor: pointer;
+}
+
+.listItem:last-child {
+    border-bottom: none;
+}
+
+.listItem:hover {
+    background-color: #f0f8ff; /* Màu xanh nhạt khi hover */
+    transform: scale(1.01); /* Zoom nhẹ */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+}
+
+/* Hiệu ứng pulse cho dấu chấm */
+.listItem span:first-child::before {
+    content: "•"; 
+    margin-right: 10px;
+    font-size: 1.5rem;
+    line-height: 0;
+    vertical-align: middle;
+}
+
+.income span:first-child::before {
+    color: #28a745; 
+    animation: pulseColor 2s infinite ease-in-out;
+}
+
+.expense span:first-child::before {
+    color: #dc3545; 
+    animation: pulseColor 2s infinite ease-in-out 1s; /* Bắt đầu muộn hơn */
+}
+
+.amountIncome { 
+    color: #28a745; 
+    font-weight: 600; 
+    font-size: 1.05rem;
+}
+
+.amountExpense { 
+    color: #dc3545; 
+    font-weight: 600; 
+    font-size: 1.05rem;
+}
+
+.listItem span:first-child {
+    font-weight: 400;
+    color: #34495e;
+}
