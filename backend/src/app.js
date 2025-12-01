@@ -8,5 +8,7 @@ app.use("/users", require("./routes/userRoute"));
 app.use("/categories", require("./routes/categoryRoute"));
 app.use("/transactions", require("./routes/transactionRoute"));
 app.use("/budgets", require("./routes/budgetRoute"));
+app.use("/warnings", require("./routes/warningRoute"));
+
 
 module.exports = app;

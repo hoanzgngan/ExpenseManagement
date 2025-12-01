@@ -8,6 +8,7 @@ exports.login = async ({ email, password }) => {
   if (!user) {
     throw new Error("Email không tồn tại");
   }
+  const isMatch = await bcrypt.compare(password, user.PasswordHash);
   if (!isMatch) {
     throw new Error("Sai mật khẩu");
   }
