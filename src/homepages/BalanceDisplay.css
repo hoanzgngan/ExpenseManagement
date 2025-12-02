@@ -1,0 +1,102 @@
+/* src/homepages/BalanceDisplay.css (Light Mode Card) */
+
+.balanceCard {
+    /* Light Mode Style (Light Blue Gradient) */
+    background: linear-gradient(135deg, #f0f8ff 0%, #e0eaff 100%); 
+    padding: 20px;
+    border-radius: 15px; 
+    color: #2c3e50; /* Chữ tối */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Bóng đổ tinh tế hơn */
+    height: 180px; 
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    border: 1px solid #dcdcdc; /* Thêm border nhẹ */
+}
+
+.balanceCard:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); /* Tạo bóng glow xanh nhẹ */
+}
+
+.balanceHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.balanceCard h3 {
+    color: #6c757d; /* Màu chữ xám */
+    font-size: 0.9rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.balanceAmount {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 5px 0 0;
+    letter-spacing: -1px;
+}
+
+.graphPlaceholder {
+    position: absolute;
+    bottom: 40px; 
+    left: 0;
+    right: 0;
+    height: 80px;
+    /* Đổi màu graph placeholder sang màu xanh dương nhạt */
+    background: linear-gradient(to top, rgba(0, 123, 255, 0.15), transparent); 
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.checkNowButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    /* Đổi màu border-top sang màu tối */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); 
+    margin-top: auto;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #007bff; /* Màu chữ chính cho nút */
+    z-index: 10;
+    transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.checkNowButton:hover {
+    color: #0056b3; 
+    background: rgba(0, 123, 255, 0.05); /* Màu nền nhẹ */
+    transform: translateX(5px); 
+}
+
+.settingIcon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6c757d; /* Màu xám */
+    transition: color 0.2s, transform 0.3s;
+}
+
+.settingIcon:hover {
+  color: #2c3e50; 
+    transform: rotate(90deg); 
+}
+
+/* Màu sắc cho số tiền (Dark colors for light background) */
+.textSuccess {
+  color: #28a745; /* Xanh đậm */
+  font-weight: bold;
+}
+
+.textDanger {
+  color: #dc3545; /* Đỏ đậm */
+  font-weight: bold;
+}
