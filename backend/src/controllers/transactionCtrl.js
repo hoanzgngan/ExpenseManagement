@@ -34,5 +34,11 @@ exports.delete = async (req, res) => {
   }
 };
 
-
-//done
+exports.update = async (req, res) => {
+  try {
+    await transactionService.update(req.params.id, req.body);
+    res.json({ message: "Cập nhật thành công" });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};

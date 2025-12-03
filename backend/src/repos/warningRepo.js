@@ -1,6 +1,6 @@
 const db = require("../config/db");
 
-// Tổng chi theo tháng
+// Tổng chi theo tháng 
 exports.getTotalSpent = async (userId, month, year) => {
   const [rows] = await db.query(
     `SELECT SUM(Amount) AS total 
@@ -13,18 +13,18 @@ exports.getTotalSpent = async (userId, month, year) => {
   return rows[0].total || 0;
 };
 
-// Ngân sách tổng tháng
+// Tổng ngân sách 
 exports.getTotalBudget = async (userId, month, year) => {
   const [rows] = await db.query(
-    `SELECT BudgetAmount 
+    `SELECT SUM(BudgetAmount) AS total
      FROM budgets 
      WHERE UserID = ? 
-     AND CategoryID IS NULL 
+     AND CategoryID IS NOT NULL 
      AND Month = ? 
      AND Year = ?`,
     [userId, month, year]
   );
-  return rows[0]?.BudgetAmount || 0;
+  return rows[0]?.total || 0;
 };
 
 // Tổng chi theo từng category
@@ -45,13 +45,14 @@ exports.getSpentByCategory = async (userId, month, year) => {
   return rows;
 };
 
-// Ngân sách theo từng category
 exports.getBudgetByCategory = async (userId, month, year) => {
   const [rows] = await db.query(
     `SELECT 
         b.CategoryID,
-        b.BudgetAmount
+        b.BudgetAmount,
+        c.Name AS CategoryName 
      FROM budgets b
+     JOIN categories c ON b.CategoryID = c.CategoryID
      WHERE b.UserID = ?
      AND b.Month = ?
      AND b.Year = ?

@@ -36,3 +36,12 @@ exports.create = async ({ userId, categoryId, amount, date, note }) => {
 exports.delete = async (id) => {
   await db.query("DELETE FROM transactions WHERE TransactionID = ?", [id]);
 };
+
+exports.update = async (id, { categoryId, amount, date, note }) => {
+  await db.query(
+    `UPDATE transactions 
+     SET CategoryID = ?, Amount = ?, TransactionDate = ?, Note = ?
+     WHERE TransactionID = ?`,
+    [categoryId, amount, date, note, id]
+  );
+};

@@ -19,7 +19,11 @@ exports.create = async({userId, categoryId, amount, date, note}) => {
 
 exports.delete = async (id) => {
     return await transactionRepo.delete(id);
-};  
-
-
-//DONE
+}; 
+ 
+exports.update = async (id, { categoryId, amount, date, note }) => {
+    if (!categoryId || !amount || !date) {
+        throw new Error("Thiếu dữ liệu cập nhật");
+    }
+    return await transactionRepo.update(id, { categoryId, amount, date, note });
+};
