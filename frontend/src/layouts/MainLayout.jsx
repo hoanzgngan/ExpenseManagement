@@ -9,6 +9,7 @@ const MainLayout = () => {
 
   if (!isLoggedIn) return <Navigate to="/login" />;
 
+  //xu ly sidebar close - open
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
