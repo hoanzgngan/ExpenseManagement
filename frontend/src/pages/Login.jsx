@@ -10,11 +10,11 @@ function Login() {
   const navigate = useNavigate();
   const loginStore = useAuthStore((state) => state.login); 
 
-  // --- STATE CHO LOGIN ---
+  //STATE CHO LOGIN 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // --- STATE CHO REGISTER ---
+  // STATE CHO REGISTER 
   const [regName, setRegName] = useState('');
   const [regEmail, setRegEmail] = useState('');
   const [regPassword, setRegPassword] = useState('');
@@ -80,7 +80,7 @@ function Login() {
     <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-pink-100 to-blue-200">
       <div className={`auth-container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
         
-        {/* --- FORM ĐĂNG KÝ --- */}
+        {/* FORM ĐĂNG KÝ */}
         <div className="form-container sign-up-container">
           <form onSubmit={handleRegister} className="flex flex-col items-center justify-center h-full px-12 text-center bg-white">
             <h1 className="mb-4 text-3xl font-bold">Đăng ký</h1>
@@ -124,7 +124,7 @@ function Login() {
           </form>
         </div>
 
-        {/* --- FORM ĐĂNG NHẬP --- */}
+        {/*FORM ĐĂNG NHẬP*/}
         <div className="form-container sign-in-container">
           <form onSubmit={handleLogin} className="flex flex-col items-center justify-center h-full px-12 text-center bg-white">
             <h1 className="mb-4 text-3xl font-bold">Đăng nhập</h1>
@@ -152,7 +152,7 @@ function Login() {
           </form>
         </div>
 
-        {/* --- OVERLAY --- */}
+        {/* OVERLAY */}
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-left">

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { api } from '../api';
 import { AlertTriangle, CheckCircle, TrendingUp, HelpCircle } from 'lucide-react';
@@ -111,7 +112,7 @@ const Warning = () => {
                         </div>
                         
                         {/* Progress Bar đỏ rực */}
-                        <div className="w-full bg-red-100 h-1.5 rounded-full mt-2 ml-3 w-[calc(100%-12px)]">
+                        <div className="bg-red-100 h-1.5 rounded-full mt-2 ml-3 w-[calc(100%-12px)]">
                             <div className="bg-red-500 h-1.5 rounded-full" style={{ width: '100%' }}></div>
                         </div>
                     </div>

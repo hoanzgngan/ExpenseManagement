@@ -6,7 +6,7 @@ const Budgets = () => {
   const [categories, setCategories] = useState([]); 
   const [reportData, setReportData] = useState({ byCategory: [] });
   
-  // State cho việc sửa ngân sách (Inline Edit)
+  // State cho việc sửa ngân sách 
   const [editingId, setEditingId] = useState(null); 
   const [editAmount, setEditAmount] = useState(''); 
 
@@ -47,7 +47,7 @@ const Budgets = () => {
   const totalPercent = totalBudget > 0 ? Math.min((totalSpent / totalBudget) * 100, 100) : 0;
   const isTotalOver = totalBudget > 0 && totalSpent > totalBudget;
 
-  // --- CÁC HÀM XỬ LÝ (ACTIONS) ---
+  //CÁC HÀM XỬ LÝ 
 
   // Bắt đầu sửa
   const startEdit = (cat) => {
@@ -122,7 +122,7 @@ const Budgets = () => {
     <div>
       <h1 className="mb-6 text-2xl font-bold">Quản lý Ngân sách</h1>
 
-      {/* --- CARD TỔNG QUAN (TỰ ĐỘNG TÍNH) --- */}
+      {/*CARD TỔNG QUAN (TỰ ĐỘNG TÍNH) */}
       <div className="p-6 mb-8 bg-white border border-blue-100 shadow-sm rounded-2xl">
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -154,7 +154,7 @@ const Budgets = () => {
 
       <h3 className="mb-4 text-lg font-bold text-gray-800">Chi tiết từng Danh mục</h3>
 
-      {/* --- GRID DANH MỤC --- */}
+      {/*GRID DANH MỤC*/}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {combinedData.map((cat) => {
             const isEditing = editingId === cat.CategoryID;
@@ -220,7 +220,7 @@ const Budgets = () => {
             );
         })}
 
-        {/* --- FORM THÊM MỚI --- */}
+        {/*FORM THÊM MỚI*/}
         <div className="flex flex-col items-center justify-center p-6 text-center transition-colors bg-white border-2 border-gray-200 border-dashed rounded-2xl hover:border-blue-400">
             <div className="p-3 mb-3 text-blue-500 rounded-full bg-blue-50">
               <Plus size={24} />

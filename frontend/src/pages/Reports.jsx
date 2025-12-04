@@ -29,7 +29,7 @@ const Reports = () => {
 
   if (!reportData) return <div className="p-6 text-center">Đang phân tích dữ liệu...</div>;
 
-  // --- LOGIC TÍNH TOÁN (ĐỒNG BỘ VỚI TRANG NGÂN SÁCH) ---
+  // LOGIC TÍNH TOÁN (ĐỒNG BỘ VỚI TRANG NGÂN SÁCH) 
   
   const combinedData = categories.map(cat => {
     // Tìm data tương ứng trong API warnings
@@ -51,7 +51,7 @@ const Reports = () => {
   const topSpender = [...combinedData].sort((a, b) => b.spent - a.spent)[0];
   const countOverBudget = combinedData.filter(c => c.isOver).length;
 
-  // --- CHUẨN BỊ DATA CHO BIỂU ĐỒ ---
+  // CHUẨN BỊ DATA CHO BIỂU ĐỒ 
 
   // Biểu đồ tròn (Chỉ hiện cái nào có chi tiêu > 0)
   const pieData = combinedData
@@ -84,7 +84,7 @@ const Reports = () => {
       ) : (
         <>
             <div className="grid grid-cols-1 gap-6 mb-8 lg:grid-cols-2">
-                {/* --- BIỂU ĐỒ TRÒN --- */}
+                {/* BIỂU ĐỒ TRÒN */}
                 <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
                 <h3 className="pb-2 mb-4 font-bold text-gray-700 border-b">Phân bố chi tiêu (Thực tế)</h3>
                 <div className="h-[300px] flex items-center justify-center">
@@ -115,7 +115,7 @@ const Reports = () => {
                 </div>
                 </div>
 
-                {/* --- BIỂU ĐỒ CỘT --- */}
+                {/* BIỂU ĐỒ CỘT */}
                 <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
                 <h3 className="pb-2 mb-4 font-bold text-gray-700 border-b">So sánh: Thực tế vs Định mức</h3>
                 <div className="h-[300px]">
@@ -134,7 +134,7 @@ const Reports = () => {
                 </div>
             </div>
 
-            {/* --- TÓM TẮT CHỈ SỐ --- */}
+            {/* TÓM TẮT CHỈ SỐ */}
             <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
                 <h3 className="mb-4 text-lg font-bold text-gray-700">Tóm tắt tình hình tài chính</h3>
                 <ul className="space-y-3 text-sm text-gray-700">

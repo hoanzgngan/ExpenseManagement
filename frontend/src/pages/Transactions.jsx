@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useEffect, useState } from 'react';
 import { api } from '../api';
 import { Plus, Trash2, Search, Edit } from 'lucide-react'; 
@@ -70,7 +71,7 @@ const Transactions = () => {
     setFilteredList(result);
   }, [originalList, searchTerm, filterTime, filterCategory]);
 
-  // --- HÀM XỬ LÝ SỬA (EDIT) ---
+  // HÀM XỬ LÝ SỬA  
   const handleEdit = (item) => {
     setEditingId(item.TransactionID); // Lưu ID đang sửa
     setFormData({
@@ -83,7 +84,7 @@ const Transactions = () => {
     setShowModal(true); // Mở Modal
   };
 
-  // --- HÀM XỬ LÝ XÓA ---
+  // HÀM XỬ LÝ XÓA 
   const handleDelete = async (id) => {
     if (confirm('Bạn có chắc muốn xóa giao dịch này?')) {
       await api.deleteTransaction(id);
@@ -91,7 +92,7 @@ const Transactions = () => {
     }
   };
 
-  // --- HÀM SUBMIT (TẠO HOẶC CẬP NHẬT) ---
+  // HÀM SUBMIT (TẠO HOẶC CẬP NHẬT)
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
