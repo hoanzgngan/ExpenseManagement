@@ -10,10 +10,10 @@ const Budgets = () => {
   const [editingId, setEditingId] = useState(null); 
   const [editAmount, setEditAmount] = useState(''); 
 
-  const date = new Date();
+  const date = React.useMemo(() => new Date(), []);
 
   // Load dữ liệu
-  const loadData = async () => {
+  const loadData = React.useCallback(async () => {
     try {
       const catRes = await api.getCategories();
       const warnRes = await api.getWarnings(date.getMonth() + 1, date.getFullYear());
@@ -23,11 +23,14 @@ const Budgets = () => {
     } catch (err) {
       console.error("Lỗi tải dữ liệu:", err);
     }
-  };
+  }, [date]);
 
   useEffect(() => {
-    loadData();
-  }, []);
+    const fetch = async () => {
+      await loadData();
+    };
+    fetch();
+  }, [loadData]);
 
   const combinedData = categories.map(cat => {
     const reportItem = reportData.byCategory.find(r => r.CategoryID === cat.CategoryID) || {};

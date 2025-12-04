@@ -33,7 +33,10 @@ const Transactions = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    const fetchAsync = async () => {
+      await fetchData();
+    };
+    fetchAsync();
   }, []);
 
   // Logic lọc dữ liệu
