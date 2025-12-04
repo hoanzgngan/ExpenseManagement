@@ -14,7 +14,7 @@ export const api = {
   getTransactions: () => axiosClient.get('/transactions'),
   createTransaction: (data) => axiosClient.post('/transactions', data),
   deleteTransaction: (id) => axiosClient.delete(`/transactions/${id}`),
-  update: (id, data) => axiosClient.put(`/transactions/${id}`, data),
+  updateTransaction: (id, data) => axiosClient.put(`/transactions/${id}`, data),
 
   // Budgets
   getBudgets: (month, year) => axiosClient.get('/budgets', { params: { month, year } }),

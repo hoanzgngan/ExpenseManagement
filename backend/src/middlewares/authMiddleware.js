@@ -1,5 +1,5 @@
 const { verifyToken } = require("../utils/jwt");
-
+// xu ly token
 module.exports = (req, res, next) => {
   const authHeader = req.headers.authorization;
 

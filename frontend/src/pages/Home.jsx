@@ -1,16 +1,22 @@
+
 import React, { useEffect, useState } from 'react';
 import { api } from '../api';
 import { Link } from 'react-router-dom';
 import { Plus } from 'lucide-react';
 import { formatCurrency } from '../utils/format';
-
+  
 const Home = () => {
+  
+
   const [stats, setStats] = useState(null);
   const [recentTrans, setRecentTrans] = useState([]);
   const [categories, setCategories] = useState([]); // State lưu danh mục cho modal
   const [showModal, setShowModal] = useState(false); // State điều khiển Modal
-  const currentDate = new Date();
+  
 
+  
+  const currentDate = new Date();
+  
   // State cho Form thêm mới
   const [formData, setFormData] = useState({
     amount: '',
@@ -42,6 +48,7 @@ const Home = () => {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchData();
   }, []);
 
@@ -80,7 +87,7 @@ const Home = () => {
     <div>
       {/* --- HEADER --- */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold text-gray-800">Bảng điều khiển</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Trang chủ</h1>
       
         <button 
           onClick={() => setShowModal(true)}
@@ -90,7 +97,7 @@ const Home = () => {
         </button>
       </div>
 
-      {/* --- CARDS THỐNG KÊ --- */}
+      {/* CARDS THỐNG KÊ  */}
       <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-3">
         {/* Card 1: Tổng chi */}
         <div className="p-6 text-white bg-blue-500 shadow-lg rounded-2xl shadow-blue-200">
@@ -143,7 +150,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* --- DANH SÁCH GẦN ĐÂY --- */}
+      {/* DANH SÁCH GẦN ĐÂY  */}
       <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-bold">Giao dịch gần đây</h3>
@@ -180,7 +187,7 @@ const Home = () => {
         </table>
       </div>
 
-      {/* --- MODAL (POPUP) --- */}
+      {/*  MODAL (POPUP)  */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
           <div className="w-full max-w-md overflow-hidden duration-200 bg-white shadow-2xl rounded-2xl animate-in fade-in zoom-in">

@@ -5,3 +5,6 @@ const auth = require("../middlewares/authMiddleware");
 router.get("/", auth, ctrl.check);
 
 module.exports = router;
+
+
+//done
